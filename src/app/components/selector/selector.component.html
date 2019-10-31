@@ -1,0 +1,20 @@
+<div id="selector">
+  <div class="card">
+    <div class="card-body">
+      <h1>Selezione</h1>
+      <label>X </label>
+      <select class="custom-select" (change)="handleChangeX($event)">
+        <option>Seleziona X</option>
+        <option *ngFor="let option of options">{{ option }}</option>
+      </select>
+      <label>Y </label>
+      <select class="custom-select" (change)="handleChangeY($event)">
+        <option>Seleziona Y</option>
+        <option *ngFor="let option of options">{{ option }}</option>
+      </select>
+      <form (ngSubmit)="handleSubmit()">
+        <input type="submit" class="btn btn-primary" value="Carica dati" />
+      </form>
+    </div>
+  </div>
+</div>

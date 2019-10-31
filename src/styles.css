@@ -1,17 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    margin: 0 auto;
-}
   
 .btn {
     border: none;
     background: #0189ac;
     color: white;
+    display: block;
+    margin: 1rem auto;
 }
 
 .btn:hover {
@@ -31,28 +25,6 @@
     text-decoration: none;
     color: white;
     font-weight: 700;
-}
-
-#input {
-    margin: 2rem auto;
-}
-
-#input .btn {
-    display: block;
-    margin: 0 auto;
-}
-
-.selector {
-    margin: 2rem auto;
-}
-
-.selector select {
-    width: 30%;
-    margin: 0 1rem;
-}
-
-.selector .btn {
-    margin: 2rem 0;
 }
 
 .charts {

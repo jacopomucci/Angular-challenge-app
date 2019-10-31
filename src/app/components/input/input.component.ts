@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent implements OnInit {
+  @Output()
+  setData: EventEmitter<object> = new EventEmitter<object>();
 
   inputData: String = '';
   error: String = ''
@@ -37,7 +39,7 @@ export class InputComponent implements OnInit {
                 return this.compareObj(dataObj[0], object)
             })) {
                 this.error = '';
-                // SET DATA
+                this.setData.emit(dataObj);
             } else {
                 this.error = 'Gli oggetti devono avere la stessa struttura';
             }     
@@ -50,9 +52,16 @@ export class InputComponent implements OnInit {
         
     }
   }
-
   onSubmit() {
     this.checkInput(this.inputData);
+  }
+
+  textareaStyle() {
+    if(this.error == '') {
+      return { border: "1px solid #33cc33" }
+    } else {
+      return { border: "1px solid red"}
+    }
   }
 
 }

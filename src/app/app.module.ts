@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InputComponent } from './components/input/input.component';
+import { SelectorComponent } from './components/selector/selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    InputComponent
+    InputComponent,
+    SelectorComponent
   ],
   imports: [
     BrowserModule,

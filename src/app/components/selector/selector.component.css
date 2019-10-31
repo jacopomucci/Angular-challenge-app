@@ -1,0 +1,9 @@
+#selector {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+#selector select {
+    width: 30%;
+    margin: 0 1rem;
+}

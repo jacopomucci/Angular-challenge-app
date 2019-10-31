@@ -1,4 +1,5 @@
 <app-header></app-header>
 <div class="container">
-  <app-input></app-input>
+  <app-input (setData)="setData($event)"></app-input>
+  <app-selector [options]="fields" (setFields)="setFields($event)"></app-selector>
 </div>

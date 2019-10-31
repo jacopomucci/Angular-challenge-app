@@ -2,13 +2,14 @@
   <div class="card">
     <div class="card-body">
       <h1>Inserimento</h1>
-      <p>{{error}}</p>
+      <p style="color: red;">{{error}}</p>
       <form (ngSubmit)="onSubmit()">
         <textarea 
           name="input" 
           rows="10" 
           cols="80" 
-          [(ngModel)]="inputData">
+          [(ngModel)]="inputData"
+          [ngStyle] = "textareaStyle()">
         </textarea>
         <input 
           type="submit" 
