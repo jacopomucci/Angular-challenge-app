@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-  
+
+body {
+    background: #ebebeb;
+}
+
 .btn {
     border: none;
     background: #0189ac;
@@ -25,14 +29,4 @@
     text-decoration: none;
     color: white;
     font-weight: 700;
-}
-
-.charts {
-    margin: 2rem auto;
-}
-
-.chart {
-    margin: 0 auto;
-    display: block;
-    height: 300px;
 }

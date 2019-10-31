@@ -2,4 +2,5 @@
 <div class="container">
   <app-input (setData)="setData($event)"></app-input>
   <app-selector [options]="fields" (setFields)="setFields($event)"></app-selector>
+  <app-charts [chartData]="chartData"></app-charts>
 </div>

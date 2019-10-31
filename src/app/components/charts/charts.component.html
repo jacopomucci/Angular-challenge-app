@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-xs-4">
+        <div class="card mx-3">
+            <div class="card-body">
+                <canvas baseChart
+                    [datasets]="datasets"
+                    [labels]="labels"
+                    legend="true"
+                    chartType="line">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="card mx-3">
+            <div class="card-body">
+                <canvas baseChart
+                    [datasets]="datasets"
+                    [labels]="labels"
+                    legend="true"
+                    chartType="bar">
+                </canvas>
+            </div>
+        </div>
+    </div> 
+    <div class="col-xs-4">
+        <div class="card mx-3">
+            <div class="card-body">
+                <canvas baseChart
+                    [datasets]="datasets"
+                    [labels]="labels"
+                    legend="false"
+                    chartType="pie">
+                </canvas>
+            </div>
+        </div> 
+    </div>
+</div>
