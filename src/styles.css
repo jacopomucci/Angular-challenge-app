@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0 auto;
+}
+  
+.btn {
+    border: none;
+    background: #0189ac;
+    color: white;
+}
+
+.btn:hover {
+    background: #33beff;
+}
+
+.navbar {
+    background: rgb(2, 135, 172);
+    color: white;
+    padding: .5rem;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+}
+
+#input {
+    margin: 2rem auto;
+}
+
+#input .btn {
+    display: block;
+    margin: 0 auto;
+}
+
+.selector {
+    margin: 2rem auto;
+}
+
+.selector select {
+    width: 30%;
+    margin: 0 1rem;
+}
+
+.selector .btn {
+    margin: 2rem 0;
+}
+
+.charts {
+    margin: 2rem auto;
+}
+
+.chart {
+    margin: 0 auto;
+    display: block;
+    height: 300px;
+}
