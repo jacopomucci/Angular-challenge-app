@@ -9,8 +9,8 @@ export class AppComponent {
 
   inputData = [];
   fields = [];
-  selectedX = '';
-  selectedY = '';
+  fieldX = '';
+  fieldY = '';
   chartData = {};
   
   getProperty(obj) {
@@ -23,21 +23,28 @@ export class AppComponent {
   setChartData() {
     const chartData = {
       labels: this.inputData.map(object => {
-         return object[this.selectedX]
+         return object[this.fieldX]
       }),
       datasets: [{
-        label: this.selectedY,
+        label: this.fieldY,
         data: this.inputData.map(object => {
-            return object[this.selectedY]
-        })
+            return object[this.fieldY]
+        }),
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
+        pointBackgroundColor: '#fff',
+        pointHitRadius: 10,
+        pointBorderColor: 'rgba(75,192,192,1)',
+        borderWidth: 3,
+        fill: true
       }]
     }
     this.chartData = chartData;
     console.log(chartData);
   }
   setFields(fields) {
-    this.selectedX = fields.x;
-    this.selectedY = fields.y;
+    this.fieldX = fields.x;
+    this.fieldY = fields.y;
     setTimeout(() => this.setChartData(), 1000);
   }
 

@@ -3,22 +3,24 @@
         <div class="card mx-3">
             <div class="card-body">
                 <canvas baseChart
+                    height="250"
                     [datasets]="datasets"
                     [labels]="labels"
-                    legend="true"
-                    chartType="line">
+                    chartType="line"
+                    legend="true">
                 </canvas>
             </div>
-        </div>
+        </div>   
     </div>
     <div class="col-xs-4">
         <div class="card mx-3">
             <div class="card-body">
                 <canvas baseChart
+                    height="250"
                     [datasets]="datasets"
                     [labels]="labels"
-                    legend="true"
-                    chartType="bar">
+                    chartType="bar"
+                    legend="true">
                 </canvas>
             </div>
         </div>
@@ -27,9 +29,9 @@
         <div class="card mx-3">
             <div class="card-body">
                 <canvas baseChart
+                    height="250"
                     [datasets]="datasets"
                     [labels]="labels"
-                    legend="false"
                     chartType="pie">
                 </canvas>
             </div>

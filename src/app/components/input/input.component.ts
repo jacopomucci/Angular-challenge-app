@@ -48,8 +48,7 @@ export class InputComponent implements OnInit {
         }
     } catch (e) {
         console.log(e);
-        this.error = 'Formato JSON non valido';
-        
+        this.error = 'Formato JSON non valido'; 
     }
   }
   onSubmit() {
