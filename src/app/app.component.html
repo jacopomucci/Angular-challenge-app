@@ -1,6 +1,12 @@
 <app-header></app-header>
 <div class="container">
   <app-input (setData)="setData($event)"></app-input>
-  <app-selector [options]="fields" (setFields)="setFields($event)"></app-selector>
-  <app-charts [chartData]="chartData"></app-charts>
+  <app-selector
+    [options]="fields"
+    (fieldsSelected)="setFields($event)"
+  ></app-selector>
+  <app-charts
+    [chartData]="chartData"
+    [chartOptions]="chartOptions"
+  ></app-charts>
 </div>

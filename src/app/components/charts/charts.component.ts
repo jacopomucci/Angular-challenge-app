@@ -1,11 +1,19 @@
-import { Component, OnInit, OnChanges, SimpleChanges, ViewChild, Input } from '@angular/core';
-import { Color, BaseChartDirective, Label } from 'ng2-charts';
-import { Chart } from 'chart.js';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+  Input,
+} from "@angular/core";
+
+import { BaseChartDirective, Label } from "ng2-charts";
+import { ChartOptions } from "chart.js";
 
 @Component({
-  selector: 'app-charts',
-  templateUrl: './charts.component.html',
-  styleUrls: ['./charts.component.css']
+  selector: "app-charts",
+  templateUrl: "./charts.component.html",
+  styleUrls: ["./charts.component.css"],
 })
 export class ChartsComponent implements OnInit, OnChanges {
   @Input() chartData;
@@ -14,11 +22,17 @@ export class ChartsComponent implements OnInit, OnChanges {
   datasets = [];
   labels = [];
   colors = [];
-  
+
+  chartOptions: ChartOptions = {
+    legend: {
+      display: false,
+    },
+  };
+
   constructor() {}
 
   ngOnInit() {
-    this.datasets = [{ data: [], label: '' }];
+    this.datasets = [{ data: [], label: "" }];
     this.labels = [];
   }
 

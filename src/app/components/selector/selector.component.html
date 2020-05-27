@@ -2,17 +2,16 @@
   <div class="card">
     <div class="card-body">
       <h1>Selezione</h1>
+      <p class="error" *ngIf="error">{{ error }}</p>
       <label>X </label>
-      <select class="custom-select" (change)="handleChangeX($event)">
-        <option>Seleziona X</option>
+      <select class="custom-select" [(ngModel)]="fieldX">
         <option *ngFor="let option of options">{{ option }}</option>
       </select>
       <label>Y </label>
-      <select class="custom-select" (change)="handleChangeY($event)">
-        <option>Seleziona Y</option>
+      <select class="custom-select" [(ngModel)]="fieldY">
         <option *ngFor="let option of options">{{ option }}</option>
       </select>
-      <form (ngSubmit)="handleSubmit()">
+      <form (ngSubmit)="selectFields()">
         <input type="submit" class="btn btn-primary" value="Carica dati" />
       </form>
     </div>
