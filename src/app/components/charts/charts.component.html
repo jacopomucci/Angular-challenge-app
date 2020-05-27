@@ -1,13 +1,13 @@
 <div class="row">
-  <div class="col col-lg-4">
+  <div class="col col-lg-6">
     <div class="card mx-3">
       <div class="card-body">
         <canvas
           baseChart
           height="250"
-          [datasets]="datasets"
+          [datasets]="chartData"
           [options]="chartOptions"
-          [labels]="labels"
+          [labels]="chartLabels"
           chartType="line"
           legend="true"
         >
@@ -15,14 +15,14 @@
       </div>
     </div>
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-6">
     <div class="card mx-3">
       <div class="card-body">
         <canvas
           baseChart
           height="250"
-          [datasets]="datasets"
-          [labels]="labels"
+          [datasets]="chartData"
+          [labels]="chartLabels"
           [options]="chartOptions"
           chartType="bar"
           legend="true"
@@ -31,19 +31,19 @@
       </div>
     </div>
   </div>
-  <div class="col col-lg-4">
+  <!-- <div class="col col-lg-4">
     <div class="card mx-3">
       <div class="card-body">
         <canvas
           baseChart
           height="250"
-          [datasets]="datasets"
+          [datasets]="chartData"
           [options]="chartOptions"
-          [labels]="labels"
+          [labels]="chartLabels"
           chartType="pie"
         >
         </canvas>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

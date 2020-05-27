@@ -6,7 +6,8 @@
     (fieldsSelected)="setFields($event)"
   ></app-selector>
   <app-charts
-    [chartData]="chartData"
-    [chartOptions]="chartOptions"
+    *ngIf="inputData && selectedFields.fieldY && selectedFields.fieldX"
+    [data]="inputData"
+    [fields]="selectedFields"
   ></app-charts>
 </div>
