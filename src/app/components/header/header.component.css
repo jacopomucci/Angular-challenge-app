@@ -1,0 +1,16 @@
+.navbar {
+  background: rgb(2, 135, 172);
+  color: white;
+  padding: 0.5rem;
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}

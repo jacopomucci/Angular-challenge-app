@@ -1,49 +1,26 @@
 <div class="row">
   <div class="col col-lg-6">
-    <div class="card mx-3">
-      <div class="card-body">
-        <canvas
-          baseChart
-          height="250"
-          [datasets]="chartData"
-          [options]="chartOptions"
-          [labels]="chartLabels"
-          chartType="line"
-          legend="true"
-        >
-        </canvas>
-      </div>
-    </div>
+    <canvas
+      baseChart
+      height="250"
+      [datasets]="chartData"
+      [options]="chartOptions"
+      [labels]="chartLabels"
+      chartType="line"
+      legend="true"
+    >
+    </canvas>
   </div>
   <div class="col col-lg-6">
-    <div class="card mx-3">
-      <div class="card-body">
-        <canvas
-          baseChart
-          height="250"
-          [datasets]="chartData"
-          [labels]="chartLabels"
-          [options]="chartOptions"
-          chartType="bar"
-          legend="true"
-        >
-        </canvas>
-      </div>
-    </div>
+    <canvas
+      baseChart
+      height="250"
+      [datasets]="chartData"
+      [labels]="chartLabels"
+      [options]="chartOptions"
+      chartType="bar"
+      legend="true"
+    >
+    </canvas>
   </div>
-  <!-- <div class="col col-lg-4">
-    <div class="card mx-3">
-      <div class="card-body">
-        <canvas
-          baseChart
-          height="250"
-          [datasets]="chartData"
-          [options]="chartOptions"
-          [labels]="chartLabels"
-          chartType="pie"
-        >
-        </canvas>
-      </div>
-    </div>
-  </div> -->
 </div>

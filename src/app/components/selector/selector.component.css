@@ -1,9 +1,12 @@
-#selector {
-    margin: 2rem 0;
-    text-align: center;
+:host {
+  text-align: center;
+}
+.selectors {
+  width: 80%;
+  margin: 0 auto;
 }
 
-#selector select {
-    width: 30%;
-    margin: 0 1rem;
+select {
+  width: 40%;
+  margin: 1rem 0.5rem;
 }

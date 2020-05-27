@@ -1,13 +1,17 @@
 <app-header></app-header>
 <div class="container">
   <app-input (setData)="setData($event)"></app-input>
-  <app-selector
-    [options]="fields"
-    (fieldsSelected)="setFields($event)"
-  ></app-selector>
-  <app-charts
-    *ngIf="inputData && selectedFields.fieldY && selectedFields.fieldX"
-    [data]="inputData"
-    [fields]="selectedFields"
-  ></app-charts>
+  <div *ngIf="inputData" class="card my-3">
+    <div class="card-body">
+      <app-selector
+        [options]="fields"
+        (fieldSelected)="onFieldSelected($event)"
+      ></app-selector>
+      <app-charts
+        *ngIf="inputData && selectedFields.fieldY && selectedFields.fieldX"
+        [data]="inputData"
+        [fields]="selectedFields"
+      ></app-charts>
+    </div>
+  </div>
 </div>
