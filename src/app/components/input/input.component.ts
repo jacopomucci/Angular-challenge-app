@@ -1,90 +1,65 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+
+import { dataPlaceholder } from "./mocks/mock-data";
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css']
+  selector: "app-input",
+  templateUrl: "./input.component.html",
+  styleUrls: ["./input.component.css"],
 })
 export class InputComponent implements OnInit {
   @Output()
   setData: EventEmitter<object> = new EventEmitter<object>();
 
-  inputData: String = '';
-  error: String = ''
+  inputData = "";
+  error: string;
 
-  constructor() { 
-    this.inputData = inputPlaceholder
-  }
+  constructor() {}
 
   ngOnInit() {
+    this.inputData = dataPlaceholder;
   }
 
   compareObj(obj1, obj2) {
-  var props1 = Object.getOwnPropertyNames(obj1);
-  var props2 = Object.getOwnPropertyNames(obj2);
-  if (props1.length !== props2.length) return false;
+    const props1 = Object.getOwnPropertyNames(obj1);
+    const props2 = Object.getOwnPropertyNames(obj2);
+    if (props1.length !== props2.length) return false;
 
-  for(var i = 0; i <= props1.length; i++) {
-      var propName = props1[i];
-      if(typeof obj1[propName] !== typeof obj2[propName]) return false;
-  }
-  return true;
-  }
-
-  checkInput(value) {
-    try {
-        const dataObj = JSON.parse(value);
-        if (Array.isArray(dataObj)) {
-            if (dataObj.every(object => {
-                return this.compareObj(dataObj[0], object)
-            })) {
-                this.error = '';
-                this.setData.emit(dataObj);
-            } else {
-                this.error = 'Gli oggetti devono avere la stessa struttura';
-            }     
-        } else {
-            this.error = 'L\'input deve contenere un array';
-        }
-    } catch (e) {
-        console.log(e);
-        this.error = 'Formato JSON non valido'; 
+    for (let i = 0; i <= props1.length; i++) {
+      const propName = props1[i];
+      if (typeof obj1[propName] !== typeof obj2[propName]) return false;
     }
+
+    return true;
   }
-  onSubmit() {
-    this.checkInput(this.inputData);
+
+  validateInput() {
+    this.error = null;
+    try {
+      const dataObj = JSON.parse(this.inputData);
+      if (Array.isArray(dataObj)) {
+        if (
+          dataObj.every((object) => {
+            return this.compareObj(dataObj[0], object);
+          })
+        ) {
+          this.setData.emit(dataObj);
+        } else {
+          this.error = "Gli oggetti devono avere la stessa struttura";
+        }
+      } else {
+        this.error = "L'input deve contenere un array";
+      }
+    } catch (e) {
+      this.error = "Formato JSON non valido";
+    }
   }
 
   textareaStyle() {
-    if(this.error == '') {
-      return { border: "1px solid #33cc33" }
+    if (this.error) {
+      return { border: "1px solid red" };
     } else {
-      return { border: "1px solid red"}
+      return { border: "1px solid #33cc33" };
     }
   }
-
 }
-
-const inputPlaceholder = 
-`[
-  { "Anno": 1900,
-    "Popolazione": 30000,
-    "Case": 5000
-  },
-  { "Anno": 1950,
-    "Popolazione": 50000,
-    "Case": 15000
-  },
-  { "Anno": 2000,
-    "Popolazione": 70000,
-    "Case": 12000
-  },
-  { "Anno": 2010,
-    "Popolazione": 60000,
-    "Case": 18000
-  },
-  { "Anno": 2020,
-    "Popolazione": 90000,
-    "Case": 16000
-  }
-]`

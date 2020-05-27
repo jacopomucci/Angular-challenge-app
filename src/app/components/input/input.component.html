@@ -2,19 +2,17 @@
   <div class="card">
     <div class="card-body">
       <h1>Inserimento</h1>
-      <p style="color: red;">{{error}}</p>
-      <form (ngSubmit)="onSubmit()">
-        <textarea 
-          name="input" 
-          rows="10" 
-          cols="80" 
+      <p style="color: red;">{{ error }}</p>
+      <form (ngSubmit)="validateInput()">
+        <textarea
+          name="input"
+          rows="10"
+          cols="80"
           [(ngModel)]="inputData"
-          [ngStyle] = "textareaStyle()">
+          [ngStyle]="textareaStyle()"
+        >
         </textarea>
-        <input 
-          type="submit" 
-          class="btn btn-primary" 
-          value="Verifica dati">
+        <input type="submit" class="btn btn-primary" value="Verifica dati" />
       </form>
     </div>
   </div>

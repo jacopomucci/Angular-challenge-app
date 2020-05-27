@@ -1,18 +1,17 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-
   inputData = [];
   fields = [];
-  fieldX = '';
-  fieldY = '';
+  fieldX = "";
+  fieldY = "";
   chartData = {};
-  
+
   getProperty(obj) {
     return Object.getOwnPropertyNames(obj);
   }
@@ -22,23 +21,25 @@ export class AppComponent {
   }
   setChartData() {
     const chartData = {
-      labels: this.inputData.map(object => {
-         return object[this.fieldX]
+      labels: this.inputData.map((object) => {
+        return object[this.fieldX];
       }),
-      datasets: [{
-        label: this.fieldY,
-        data: this.inputData.map(object => {
-            return object[this.fieldY]
-        }),
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
-        pointBackgroundColor: '#fff',
-        pointHitRadius: 10,
-        pointBorderColor: 'rgba(75,192,192,1)',
-        borderWidth: 3,
-        fill: true
-      }]
-    }
+      datasets: [
+        {
+          label: this.fieldY,
+          data: this.inputData.map((object) => {
+            return object[this.fieldY];
+          }),
+          backgroundColor: "rgba(75,192,192,0.4)",
+          borderColor: "rgba(75,192,192,1)",
+          pointBackgroundColor: "#fff",
+          pointHitRadius: 10,
+          pointBorderColor: "rgba(75,192,192,1)",
+          borderWidth: 3,
+          fill: true,
+        },
+      ],
+    };
     this.chartData = chartData;
     console.log(chartData);
   }
@@ -47,5 +48,4 @@ export class AppComponent {
     this.fieldY = fields.y;
     setTimeout(() => this.setChartData(), 1000);
   }
-
 }
