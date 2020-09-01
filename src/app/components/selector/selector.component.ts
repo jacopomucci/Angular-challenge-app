@@ -1,34 +1,42 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  OnDestroy,
+} from "@angular/core";
+import { Subscription } from "rxjs";
+import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: "app-selector",
+  selector: "data-selector",
   templateUrl: "./selector.component.html",
   styleUrls: ["./selector.component.css"],
 })
-export class SelectorComponent implements OnInit {
-  @Input() options: Object;
-  @Output() fieldSelected = new EventEmitter<{
-    field: string;
-    value: string;
-  }>();
+export class SelectorComponent implements OnInit, OnDestroy {
+  @Input() fields: string[];
+  @Output() fieldSelected = new EventEmitter<[string, string]>();
 
-  fieldX: string;
-  fieldY: string;
+  @ViewChild("form", { static: true }) form: NgForm;
+
+  selectedFields: [string, string] = [null, null];
   error: string;
+
+  sub: Subscription;
 
   constructor() {}
 
-  ngOnInit() {}
-
-  handleChange(event, field: string) {
-    const value = event.target.value;
-    this.fieldSelected.emit({ field, value });
+  ngOnInit() {
+    this.selectedFields = [this.fields[0], this.fields[1]];
+    this.sub = this.form.form.valueChanges.subscribe((formValues) => {
+      console.log(formValues);
+      this.fieldSelected.emit([formValues.fieldX, formValues.fieldY]);
+    });
   }
 
-  // selectFields() {
-  //   this.error = null;
-  //   if (this.fieldX && this.fieldY)
-  //     this.fieldsSelected.emit([this.fieldX, this.fieldY]);
-  //   else this.error = "Seleziona i campi da visualizzare!";
-  // }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 }

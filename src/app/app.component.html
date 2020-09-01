@@ -1,17 +1,26 @@
 <app-header></app-header>
 <div class="container">
-  <app-input (setData)="setData($event)"></app-input>
-  <div *ngIf="inputData" class="card my-3">
+  <div class="card my-3">
     <div class="card-body">
-      <app-selector
-        [options]="fields"
-        (fieldSelected)="onFieldSelected($event)"
-      ></app-selector>
-      <app-charts
-        *ngIf="inputData && selectedFields.fieldY && selectedFields.fieldX"
-        [data]="inputData"
-        [fields]="selectedFields"
-      ></app-charts>
+      <data-input
+        *ngIf="step === 1"
+        (dataOutput)="setData($event)"
+      ></data-input>
+      <ng-container *ngIf="step === 2">
+        <data-selector
+          [fields]="dataFields"
+          (fieldSelected)="onFieldSelected($event)"
+        ></data-selector>
+        <data-charts
+          *ngIf="data && selectedFields"
+          [data]="data"
+          [fields]="selectedFields"
+        ></data-charts>
+      </ng-container>
+      <navigation-bar
+        (navigationEvt)="step = $event"
+        [showData]="data"
+      ></navigation-bar>
     </div>
   </div>
 </div>

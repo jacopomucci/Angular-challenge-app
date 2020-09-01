@@ -8,10 +8,18 @@ body {
   border: none;
   background: #0189ac;
   color: white;
-  display: block;
-  margin: 1rem auto;
 }
 
 .btn:hover {
   background: #33beff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #2d2d2d;
 }

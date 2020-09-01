@@ -8,36 +8,26 @@ import { Subject } from "rxjs";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  inputData: any[] = null;
-  fields: string[] = [];
-  selectedFields: {
-    fieldX: string;
-    fieldY: string;
-  } = {
-    fieldX: null,
-    fieldY: null,
-  };
+  data: any[];
+  dataFields: string[] = [];
+  selectedFields: [string, string];
   fieldY: string;
 
-  updateCharts$ = new Subject<void>();
+  step: number = 1;
 
-  getProperty(obj) {
-    return Object.getOwnPropertyNames(obj);
-  }
-  setData(dataObj) {
-    this.inputData = [...dataObj];
-    this.fields = this.getProperty(dataObj[0]);
+  setData(data: any) {
+    this.data = data;
+    if (!data) return;
+    this.dataFields = Object.getOwnPropertyNames(data[0]);
+    this.selectedFields = [this.dataFields[0], this.dataFields[1]];
   }
 
-  onFieldSelected(event: { field: string; value: string }) {
-    if (event.field === "fieldX") {
-      this.selectedFields.fieldX = event.value;
-    } else if (event.field === "fieldY") {
-      this.selectedFields.fieldY = event.value;
-    }
-    console.log(this.selectedFields.fieldX);
-    console.log(this.selectedFields.fieldY);
-    if (this.selectedFields.fieldX && this.selectedFields.fieldY)
-      this.updateCharts$.next();
+  onFieldSelected(fields: [string, string]) {
+    if (!fields) return;
+    this.selectedFields = fields;
+  }
+
+  onNavigation(step: number) {
+    this.step = step;
   }
 }

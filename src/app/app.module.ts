@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { InputComponent } from './components/input/input.component';
 import { SelectorComponent } from './components/selector/selector.component';
 import { ChartsComponent } from './components/charts/charts.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ChartsComponent } from './components/charts/charts.component';
     HeaderComponent,
     InputComponent,
     SelectorComponent,
-    ChartsComponent
+    ChartsComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,

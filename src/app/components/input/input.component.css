@@ -1,8 +1,14 @@
-h1 {
-  text-align: center;
+:host {
+  display: block;
 }
 
 textarea {
   display: block;
   margin: 1rem auto;
+  width: 80%;
+}
+
+h1,
+p {
+  text-align: center;
 }

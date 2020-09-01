@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center mt-3">
+  <button
+    class="btn btn-primary mr-3"
+    *ngIf="step === 1 && showData"
+    (click)="navigate(2)"
+  >
+    Visualizza dati
+  </button>
+  <button class="btn btn-primary" *ngIf="step === 2" (click)="navigate(1)">
+    Indietro
+  </button>
+</div>

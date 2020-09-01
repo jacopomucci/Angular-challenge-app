@@ -1,9 +1,8 @@
-<h1>Selezione</h1>
-<div class="selectors">
-  <select class="custom-select" (change)="handleChange($event, 'fieldX')">
-    <option *ngFor="let option of options">{{ option }}</option>
+<form #form="ngForm">
+  <select [(ngModel)]="selectedFields[0]" name="fieldX">
+    <option *ngFor="let field of fields">{{ field }}</option>
   </select>
-  <select class="custom-select" (change)="handleChange($event, 'fieldY')">
-    <option *ngFor="let option of options">{{ option }}</option>
+  <select [(ngModel)]="selectedFields[1]" name="fieldY">
+    <option *ngFor="let field of fields">{{ field }}</option>
   </select>
-</div>
+</form>

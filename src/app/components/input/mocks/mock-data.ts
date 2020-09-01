@@ -1,4 +1,4 @@
-export const dataPlaceholder = `[
+export const mockData = `[
   { "Anno": 1900,
     "Popolazione": 30000,
     "Case": 5000
