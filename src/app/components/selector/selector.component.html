@@ -1,8 +1,8 @@
-<form #form="ngForm">
-  <select [(ngModel)]="selectedFields[0]" name="fieldX">
+<form #form="ngForm" class="d-flex justify-content-center">
+  <select class="form-control" [(ngModel)]="selectedFields[0]" name="fieldX">
     <option *ngFor="let field of fields">{{ field }}</option>
   </select>
-  <select [(ngModel)]="selectedFields[1]" name="fieldY">
+  <select class="form-control" [(ngModel)]="selectedFields[1]" name="fieldY">
     <option *ngFor="let field of fields">{{ field }}</option>
   </select>
 </form>
