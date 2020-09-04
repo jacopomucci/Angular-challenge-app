@@ -45,6 +45,12 @@ export class InputComponent implements OnInit {
 
   sub: Subscription;
 
+  get textareaStyle() {
+    return this.errorMessage
+      ? { border: "1px solid red" }
+      : { border: "1px solid #33cc33" };
+  }
+
   constructor() {}
 
   ngOnInit() {
@@ -55,16 +61,15 @@ export class InputComponent implements OnInit {
   }
 
   validateInput(data: string) {
-    this.errorMessage = null;
     try {
       const dataObj = JSON.parse(data);
-      console.log(dataObj);
       if (Array.isArray(dataObj)) {
         if (
           dataObj.every((object) => {
             return compareObj(dataObj[0], object);
           })
         ) {
+          this.errorMessage = null;
           this.dataOutput.emit(dataObj);
         } else this.handleError(InputError.INVALID_STRUCTURE);
       } else this.handleError(InputError.INVALID_ARRAY);
@@ -81,11 +86,5 @@ export class InputComponent implements OnInit {
     if (error === InputError.INVALID_STRUCTURE)
       this.errorMessage = "Gli oggetti devono avere la stessa struttura";
     this.dataOutput.emit(null);
-  }
-
-  textareaStyle() {
-    return this.errorMessage
-      ? { border: "1px solid red" }
-      : { border: "1px solid #33cc33" };
   }
 }
