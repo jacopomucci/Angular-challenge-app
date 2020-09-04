@@ -27,6 +27,18 @@ export class ChartsComponent implements OnInit, OnDestroy {
     legend: {
       display: false,
     },
+    tooltips: {
+      mode: "index",
+      callbacks: {
+        label: (tooltipItem, data) => {
+          console.log(tooltipItem);
+          const { datasetIndex, index } = tooltipItem;
+          const label = this.fields$.getValue()[datasetIndex];
+          return `${label}: ${tooltipItem.value} `;
+        },
+        title: () => "",
+      },
+    },
   };
 
   chartLabels: Label[] = [];
